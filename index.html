@@ -1,0 +1,372 @@
+    <title>ITSHOVER // ANIMATED ICONS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'util-black': '#0a0a0a',
+                        'util-gray': '#e5e5e5',
+                        'util-accent': '#ff3300', /* International Orange */
+                        'util-border': '#333333'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'mono': ['JetBrains Mono', 'monospace'],
+                    },
+                    spacing: {
+                        '128': '32rem',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-util-black text-util-gray font-mono overflow-x-hidden selection:bg-util-accent selection:text-black">
+
+    <!-- Grid Overlay (Fixed) -->
+    <div class="fixed inset-0 pointer-events-none z-50 grid-overlay opacity-20"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-40 bg-util-black border-b border-util-border flex justify-between items-stretch h-14 uppercase text-xs tracking-widest">
+        <div class="flex items-center px-6 border-r border-util-border font-bold text-white">
+            <span class="w-3 h-3 bg-util-accent mr-3 animate-pulse"></span>
+            ITSHOVER
+        </div>
+        
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex flex-1">
+            <a href="#" class="flex items-center px-8 border-r border-util-border hover:bg-util-accent hover:text-black transition-colors">Docs</a>
+            <a href="#" class="flex items-center px-8 border-r border-util-border hover:bg-util-accent hover:text-black transition-colors">Icons</a>
+            <a href="#" class="flex items-center px-8 border-r border-util-border hover:bg-util-accent hover:text-black transition-colors">GitHub</a>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-btn" class="md:hidden flex items-center px-6 border-r border-util-border text-white hover:bg-util-accent hover:text-black transition-colors">
+            MENU
+        </button>
+
+        <div class="hidden md:flex items-center px-6 bg-util-border text-white font-bold">
+            V.1.0.0
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-30 bg-util-black transform translate-x-full transition-transform duration-300 pt-14 flex flex-col md:hidden overflow-y-auto">
+        <a href="#" class="p-6 border-b border-util-border text-white hover:bg-util-accent hover:text-black transition-colors uppercase text-sm tracking-widest font-bold">Docs</a>
+        <a href="#" class="p-6 border-b border-util-border text-white hover:bg-util-accent hover:text-black transition-colors uppercase text-sm tracking-widest font-bold">Icons</a>
+        <a href="#" class="p-6 border-b border-util-border text-white hover:bg-util-accent hover:text-black transition-colors uppercase text-sm tracking-widest font-bold">GitHub</a>
+        <div class="p-6 text-util-gray text-xs font-mono opacity-50">
+            V.1.0.0
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <main class="pt-14 min-h-screen relative">
+        
+        <!-- Hero Section -->
+        <section class="relative min-h-[80vh] md:h-[80vh] w-full border-b border-util-border flex flex-col md:flex-row">
+            
+            <!-- Left: Typography -->
+            <div class="w-full md:w-1/2 p-6 md:p-12 flex flex-col justify-between border-r border-util-border z-10 bg-util-black/50 backdrop-blur-sm">
+                <div class="text-xs text-util-accent mb-4">[ STATUS: OPEN SOURCE ]</div>
+                <div>
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black font-sans tracking-tighter text-white mb-6 uppercase leading-[0.85]">
+                        Bring<br>
+                        Static<br>
+                        To Life
+                    </h1>
+                    <p class="max-w-md text-sm md:text-base opacity-70 mb-8 border-l-2 border-util-accent pl-4">
+                        The lightweight open-source library for animated SVG icons. 
+                        Framework agnostic. Zero dependencies. purely utilitarian.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="group relative px-8 py-4 bg-transparent border border-util-gray text-util-gray overflow-hidden hover:text-black transition-colors duration-300 w-full sm:w-auto">
+                            <span class="absolute inset-0 w-full h-full bg-util-gray transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out"></span>
+                            <span class="relative z-10 font-bold uppercase tracking-widest text-xs">Get Started</span>
+                        </button>
+                         <button class="px-8 py-4 bg-transparent border border-util-border text-util-gray hover:border-util-accent hover:text-util-accent transition-colors duration-300 font-bold uppercase tracking-widest text-xs w-full sm:w-auto">
+                            View Github
+                        </button>
+                    </div>
+                </div>
+                <div class="flex justify-between text-[10px] uppercase opacity-50 mt-12">
+                    <span>LICENSE: MIT</span>
+                    <span>SIZE: &lt; 2KB</span>
+                </div>
+            </div>
+
+            <!-- Right: Interactive SVG Animation -->
+            <div class="w-full h-[50vh] md:h-auto md:w-1/2 bg-[#050505] relative overflow-hidden border-t md:border-t-0 border-util-border" id="canvas-container">
+                <!-- SVG Canvas inserted by JS -->
+                <div class="absolute bottom-4 right-4 text-[10px] bg-black border border-util-border px-2 py-1 z-20">
+                    PREVIEW: LIVE
+                </div>
+            </div>
+        </section>
+
+        <!-- Marquee -->
+        <div class="border-b border-util-border overflow-hidden whitespace-nowrap py-3 bg-util-accent text-black font-bold uppercase text-sm tracking-widest">
+            <div class="animate-marquee inline-block">
+                /// OPEN SOURCE LIBRARY /// SVG ANIMATIONS /// HOVER INTERACTIONS /// LIGHTWEIGHT /// OPEN SOURCE LIBRARY /// SVG ANIMATIONS /// HOVER INTERACTIONS /// LIGHTWEIGHT
+            </div>
+        </div>
+
+        <!-- Grid Layout Section -->
+        <section class="grid mt-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 auto-rows-fr border-b border-util-border">
+            
+            <!-- Card 1 -->
+            <div class="border-r border-b border-util-border p-8 hover:bg-white/5 transition-colors group h-full">
+                <div class="flex justify-between items-start mb-12">
+                    <span class="text-xs border border-util-border px-1.5 py-0.5 rounded-none text-util-accent">01</span>
+                    <!-- JS Animated Icon Container -->
+                    <div id="performance-icon-container" class="w-12 h-12 text-util-gray"></div>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2 uppercase">Tiny Footprint</h3>
+                <p class="text-xs opacity-60 leading-relaxed">
+                    Optimized SVGs. No heavy JS bundles. Keeps your lighthouse score perfect.
+                </p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="border-r border-b border-util-border p-8 hover:bg-white/5 transition-colors group h-full">
+                <div class="flex justify-between items-start mb-12">
+                    <span class="text-xs border border-util-border px-1.5 py-0.5 rounded-none text-util-accent">02</span>
+                    <!-- Icon: Cursor/Interaction -->
+                    <svg class="w-6 h-6 text-util-gray group-hover:text-util-accent transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2 uppercase">Interaction</h3>
+                <p class="text-xs opacity-60 leading-relaxed">
+                    Built for hover, click, and load states. Smooth transitions out of the box.
+                </p>
+            </div>
+
+            <!-- Card 3 (Double width on large) -->
+            <div class="lg:col-span-2 border-r border-b border-util-border p-8 relative overflow-hidden group">
+                <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9IiMzMzMiLz48L3N2Zz4=')] opacity-20"></div>
+                <div class="relative z-10 flex flex-col h-full justify-between">
+                    <div class="flex justify-between w-full border-b border-util-border/50 pb-4 mb-4">
+                        <span class="uppercase text-xs font-bold">State Logic</span>
+                        <span class="text-util-accent font-mono" id="state-val">STATE: IDLE</span>
+                    </div>
+                    
+                    <!-- JS Animated State Toggle -->
+                    <div class="relative h-32 w-full flex items-center justify-center" id="state-icon-container">
+                        <!-- SVG injected by JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+             <div class="border-r border-b border-util-border p-8 hover:bg-white/5 transition-colors group h-full">
+                <div class="flex justify-between items-start mb-12">
+                    <span class="text-xs border border-util-border px-1.5 py-0.5 rounded-none text-util-accent">03</span>
+                    <!-- Icon: Code/Settings -->
+                    <svg class="w-6 h-6 text-util-gray group-hover:text-util-accent transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2 uppercase">Easy Config</h3>
+                <p class="text-xs opacity-60 leading-relaxed">
+                    Style with CSS classes. Control animation duration and easing with data attributes.
+                </p>
+            </div>
+
+            <!-- Card 5 (Image placeholder) -->
+            <div class="md:col-span-2 lg:col-span-3 border-r border-b border-util-border flex flex-col md:flex-row h-full">
+               <div class="w-full md:w-1/3 bg-util-border p-8 flex flex-col justify-center">
+                   <h4 class="text-4xl font-bold text-black uppercase mb-2">Install<br>Now</h4>
+                   <code class="bg-black text-util-gray p-3 text-xs mt-4 block font-mono border-l-4 border-util-accent break-all">
+                       npm install itshover
+                   </code>
+                   <button class="mt-4 border border-black px-4 py-2 text-xs uppercase font-bold hover:bg-black hover:text-white transition-colors self-start">Read Documentation</button>
+               </div>
+               <div class="w-full md:w-2/3 relative h-64 md:h-auto bg-util-black flex items-center justify-center overflow-hidden">
+                   <!-- Decorative lines -->
+                   <div class="absolute w-full h-[1px] bg-util-border top-1/2"></div>
+                   <div class="absolute h-full w-[1px] bg-util-border left-1/2"></div>
+                   
+                   <!-- Central Abstract Icon Animation -->
+                   <div class="relative w-32 h-32 flex items-center justify-center group cursor-pointer">
+                        <div class="absolute inset-0 border border-util-accent rounded-full animate-spin-slow opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="absolute inset-4 border border-dashed border-white rounded-full animate-reverse-spin opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="w-2 h-2 bg-util-accent rounded-full"></div>
+                   </div>
+               </div>
+            </div>
+
+        </section>
+
+        <!-- New Section: Interaction Lab (Live Demo) -->
+        <section class="border-b border-util-border bg-[#080808]">
+            <div class="p-4 md:p-8 border-b border-util-border flex justify-between items-center">
+                <h2 class="text-2xl font-black uppercase text-white tracking-tight">Interaction Lab</h2>
+                <span class="text-xs font-mono text-util-accent animate-pulse">● LIVE PREVIEW</span>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 h-64 md:h-48">
+                <!-- Icon 1: Menu -->
+                <div class="border-r border-b lg:border-b-0 border-util-border flex flex-col items-center justify-center group cursor-pointer bg-transparent hover:bg-white/5 transition-colors">
+                    <svg class="w-8 h-8 text-util-gray transition-transform duration-300 group-hover:rotate-90 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    <span class="text-[10px] mt-4 uppercase opacity-40 font-mono group-hover:text-util-accent group-hover:opacity-100">Menu // Rotate</span>
+                </div>
+                
+                <!-- Icon 2: Add -->
+                <div class="border-r border-b lg:border-b-0 border-util-border flex flex-col items-center justify-center group cursor-pointer bg-transparent hover:bg-white/5 transition-colors">
+                    <svg class="w-8 h-8 text-util-gray transition-transform duration-300 group-hover:scale-125 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                    <span class="text-[10px] mt-4 uppercase opacity-40 font-mono group-hover:text-util-accent group-hover:opacity-100">Add // Scale</span>
+                </div>
+
+                <!-- Icon 3: Reload -->
+                <div class="border-r border-b lg:border-b-0 border-util-border flex flex-col items-center justify-center group cursor-pointer bg-transparent hover:bg-white/5 transition-colors">
+                    <svg class="w-8 h-8 text-util-gray transition-all duration-500 group-hover:rotate-180 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                    <span class="text-[10px] mt-4 uppercase opacity-40 font-mono group-hover:text-util-accent group-hover:opacity-100">Sync // Spin</span>
+                </div>
+
+                <!-- Icon 4: Arrow -->
+                <div class="border-r border-b lg:border-b-0 border-util-border flex flex-col items-center justify-center group cursor-pointer bg-transparent hover:bg-white/5 transition-colors">
+                    <svg class="w-8 h-8 text-util-gray transition-transform duration-300 group-hover:translate-x-2 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    <span class="text-[10px] mt-4 uppercase opacity-40 font-mono group-hover:text-util-accent group-hover:opacity-100">Next // Slide</span>
+                </div>
+                
+                 <!-- Icon 5: Notification -->
+                 <div class="border-r border-b lg:border-b-0 border-util-border flex flex-col items-center justify-center group cursor-pointer bg-transparent hover:bg-white/5 transition-colors">
+                    <svg class="w-8 h-8 text-util-gray transition-transform duration-100 group-hover:-rotate-12 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+                    <span class="text-[10px] mt-4 uppercase opacity-40 font-mono group-hover:text-util-accent group-hover:opacity-100">Bell // Shake</span>
+                </div>
+
+                <!-- Icon 6: Close -->
+                <div class="border-r border-b lg:border-b-0 border-util-border flex flex-col items-center justify-center group cursor-pointer bg-transparent hover:bg-white/5 transition-colors">
+                    <svg class="w-8 h-8 text-util-gray transition-colors duration-300 group-hover:text-util-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    <span class="text-[10px] mt-4 uppercase opacity-40 font-mono group-hover:text-util-accent group-hover:opacity-100">Err // Color</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Section: Implementation (Code) -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 border-b border-util-border">
+             <!-- Code Column -->
+            <div class="p-8 md:p-12 border-b lg:border-b-0 lg:border-r border-util-border bg-[#050505]">
+                <h3 class="text-xl font-bold text-white mb-6 uppercase flex items-center">
+                    <span class="w-2 h-2 bg-util-accent mr-2"></span>
+                    Implementation
+                </h3>
+                <div class="font-mono text-xs md:text-sm text-gray-400 bg-black border border-util-border p-6 relative overflow-x-auto">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-util-border"></div>
+                    <div class="mb-4">
+                        <span class="text-util-accent">import</span> { Icon } <span class="text-util-accent">from</span> 'itsHover';
+                    </div>
+                    <div class="mb-4">
+                        <span class="opacity-50">// Initialize with custom easing</span><br>
+                        <span class="text-[#4ec9b0]">const</span> icon = <span class="text-[#dcdcaa]">new</span> Icon('#my-svg', {<br>
+                        &nbsp;&nbsp;animation: <span class="text-[#ce9178]">'rotate'</span>,<br>
+                        &nbsp;&nbsp;duration: <span class="text-[#b5cea8]">0.4</span>,<br>
+                        &nbsp;&nbsp;trigger: <span class="text-[#ce9178]">'hover'</span><br>
+                        });
+                    </div>
+                    <div>
+                        icon.<span class="text-[#dcdcaa]">mount</span>();
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Comparison Table Column -->
+            <div class="p-8 md:p-12 bg-util-black flex flex-col justify-center">
+                <h3 class="text-xl font-bold text-white mb-6 uppercase">Technical Specs</h3>
+                <div class="w-full overflow-x-auto">
+                    <table class="w-full text-left border-collapse font-mono text-xs">
+                        <thead>
+                            <tr class="border-b border-util-border text-white">
+                                <th class="py-3 px-4 bg-white/5 uppercase">Library</th>
+                                <th class="py-3 px-4 bg-white/5 uppercase">Size (Gzip)</th>
+                                <th class="py-3 px-4 bg-white/5 uppercase">Deps</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-400">
+                            <tr class="border-b border-util-border">
+                                <td class="py-3 px-4 font-bold text-white border-r border-util-border">itsHover</td>
+                                <td class="py-3 px-4 text-util-accent border-r border-util-border">1.8 KB</td>
+                                <td class="py-3 px-4">0</td>
+                            </tr>
+                            <tr class="border-b border-util-border opacity-50">
+                                <td class="py-3 px-4 border-r border-util-border">Lottie Web</td>
+                                <td class="py-3 px-4 border-r border-util-border">~60 KB</td>
+                                <td class="py-3 px-4">Yes</td>
+                            </tr>
+                             <tr class="opacity-50">
+                                <td class="py-3 px-4 border-r border-util-border">Framer Motion</td>
+                                <td class="py-3 px-4 border-r border-util-border">~30 KB</td>
+                                <td class="py-3 px-4">React</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- CTA Section -->
+        <section class="border-b border-util-border py-20 bg-util-black text-center relative overflow-hidden">
+             <!-- Background Pattern -->
+             <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: linear-gradient(0deg, transparent 24%, #333 25%, #333 26%, transparent 27%, transparent 74%, #333 75%, #333 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, #333 25%, #333 26%, transparent 27%, transparent 74%, #333 75%, #333 76%, transparent 77%, transparent); background-size: 50px 50px;"></div>
+             
+             <div class="relative z-10 max-w-4xl mx-auto px-6">
+                <h2 class="text-4xl md:text-6xl font-black text-white uppercase mb-6 tracking-tight">Ready to Animate?</h2>
+                <p class="text-util-gray text-sm md:text-base max-w-lg mx-auto mb-10 opacity-70">
+                    Join thousands of developers building lighter, faster, and more interactive web experiences.
+                </p>
+                
+                <div class="flex flex-col md:flex-row justify-center items-center gap-4">
+                     <div class="group relative inline-flex items-center">
+                        <div class="absolute -inset-1 bg-util-accent blur opacity-25 group-hover:opacity-50 transition duration-200"></div>
+                        <button class="relative bg-white text-black font-bold uppercase text-xs px-8 py-4 hover:bg-util-gray transition-colors border border-transparent">
+                            npm install itshover
+                        </button>
+                     </div>
+                     <button class="bg-transparent border border-util-border text-white font-bold uppercase text-xs px-8 py-4 hover:border-util-accent hover:text-util-accent transition-colors">
+                        View on GitHub
+                     </button>
+                </div>
+             </div>
+        </section>
+
+
+        <!-- Footer -->
+        <footer class="border-t border-util-border bg-black text-[10px] md:text-xs uppercase tracking-wider">
+            <div class="grid grid-cols-2 md:grid-cols-4">
+                <div class="p-8 border-r border-b md:border-b-0 border-util-border">
+                    <h5 class="font-bold text-white mb-4">Library</h5>
+                    <ul class="space-y-2 opacity-60">
+                        <li><a href="#" class="hover:text-util-accent">Usage</a></li>
+                        <li><a href="#" class="hover:text-util-accent">Icons</a></li>
+                        <li><a href="#" class="hover:text-util-accent">Changelog</a></li>
+                    </ul>
+                </div>
+                <div class="p-8 border-r border-b md:border-b-0 border-util-border">
+                    <h5 class="font-bold text-white mb-4">Community</h5>
+                    <ul class="space-y-2 opacity-60">
+                        <li><a href="#" class="hover:text-util-accent">GitHub</a></li>
+                        <li><a href="#" class="hover:text-util-accent">Discord</a></li>
+                        <li><a href="#" class="hover:text-util-accent">Sponsor</a></li>
+                    </ul>
+                </div>
+                <div class="p-8 border-r border-util-border col-span-2 md:col-span-2">
+                    <h5 class="font-bold text-white mb-4">Stay Updated</h5>
+                    <div class="flex border border-util-border">
+                        <input type="email" placeholder="ENTER EMAIL" class="bg-transparent px-4 py-2 w-full min-w-0 outline-none text-white placeholder-util-border focus:bg-white/5">
+                        <button class="px-6 py-2 bg-util-gray text-black font-bold hover:bg-util-accent transition-colors">→</button>
+                    </div>
+                </div>
+            </div>
+            <div class="p-4 text-center border-t border-util-border opacity-30">
+                © 2026 ITSHOVER OPEN SOURCE. MIT LICENSE.
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
