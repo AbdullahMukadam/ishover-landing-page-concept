@@ -8,26 +8,356 @@
       "steps": [
         {
           "id": 1,
-          "title": "Personal Info",
+          "title": "Header",
           "fields": [
             {
-              "name": "name",
-              "label": "Full Name",
+              "name": "brandName",
+              "label": "Brand Name",
               "type": "text",
               "required": true,
-              "placeholder": "John Doe"
+              "placeholder": "ishover",
+              "default": "ITSHOVER"
             },
             {
-              "name": "email",
-              "label": "Email",
-              "type": "email",
-              "required": true
+              "name": "navDocs",
+              "label": "Nav Link 1",
+              "type": "text",
+              "placeholder": "Docs",
+              "default": "Docs"
             },
             {
-              "name": "bio",
-              "label": "Bio",
+              "name": "navIcons",
+              "label": "Nav Link 2",
+              "type": "text",
+              "placeholder": "Icons",
+              "default": "Icons"
+            },
+            {
+              "name": "navGithub",
+              "label": "Nav Link 3",
+              "type": "text",
+              "placeholder": "GitHub",
+              "default": "GitHub"
+            },
+            {
+              "name": "version",
+              "label": "Version",
+              "type": "text",
+              "placeholder": "V.1.0.0",
+              "default": "V.1.0.0"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Hero Section",
+          "fields": [
+            {
+              "name": "statusLabel",
+              "label": "Status Label",
+              "type": "text",
+              "placeholder": "[ STATUS: OPEN SOURCE ]",
+              "default": "[ STATUS: OPEN SOURCE ]"
+            },
+            {
+              "name": "heroTitleLine1",
+              "label": "Hero Title Line 1",
+              "type": "text",
+              "placeholder": "Bring",
+              "default": "Bring"
+            },
+            {
+              "name": "heroTitleLine2",
+              "label": "Hero Title Line 2",
+              "type": "text",
+              "placeholder": "Static",
+              "default": "Static"
+            },
+            {
+              "name": "heroTitleLine3",
+              "label": "Hero Title Line 3",
+              "type": "text",
+              "placeholder": "To Life",
+              "default": "To Life"
+            },
+            {
+              "name": "heroDescription",
+              "label": "Hero Description",
               "type": "textarea",
-              "rows": 4
+              "rows": 3,
+              "placeholder": "The lightweight open-source library for animated SVG icons. Framework agnostic. Zero dependencies. purely utilitarian.",
+              "default": "The lightweight open-source library for animated SVG icons. Framework agnostic. Zero dependencies. purely utilitarian."
+            },
+            {
+              "name": "buttonPrimaryText",
+              "label": "Primary Button Text",
+              "type": "text",
+              "placeholder": "Get Started",
+              "default": "Get Started"
+            },
+            {
+              "name": "buttonSecondaryText",
+              "label": "Secondary Button Text",
+              "type": "text",
+              "placeholder": "View Github",
+              "default": "View Github"
+            },
+            {
+              "name": "licenseText",
+              "label": "License Text",
+              "type": "text",
+              "placeholder": "LICENSE: MIT",
+              "default": "LICENSE: MIT"
+            },
+            {
+              "name": "sizeText",
+              "label": "Size Text",
+              "type": "text",
+              "placeholder": "SIZE: < 2KB",
+              "default": "SIZE: < 2KB"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "Marquee",
+          "fields": [
+            {
+              "name": "marqueeText",
+              "label": "Marquee Text",
+              "type": "text",
+              "placeholder": "/// OPEN SOURCE LIBRARY /// SVG ANIMATIONS /// HOVER INTERACTIONS /// LIGHTWEIGHT",
+              "default": "/// OPEN SOURCE LIBRARY /// SVG ANIMATIONS /// HOVER INTERACTIONS /// LIGHTWEIGHT"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "title": "Features Grid",
+          "fields": [
+            {
+              "name": "feature1Title",
+              "label": "Feature 1 Title",
+              "type": "text",
+              "placeholder": "Tiny Footprint",
+              "default": "Tiny Footprint"
+            },
+            {
+              "name": "feature1Description",
+              "label": "Feature 1 Description",
+              "type": "textarea",
+              "rows": 2,
+              "placeholder": "Optimized SVGs. No heavy JS bundles. Keeps your lighthouse score perfect.",
+              "default": "Optimized SVGs. No heavy JS bundles. Keeps your lighthouse score perfect."
+            },
+            {
+              "name": "feature2Title",
+              "label": "Feature 2 Title",
+              "type": "text",
+              "placeholder": "Interaction",
+              "default": "Interaction"
+            },
+            {
+              "name": "feature2Description",
+              "label": "Feature 2 Description",
+              "type": "textarea",
+              "rows": 2,
+              "placeholder": "Built for hover, click, and load states. Smooth transitions out of the box.",
+              "default": "Built for hover, click, and load states. Smooth transitions out of the box."
+            },
+            {
+              "name": "feature3Title",
+              "label": "Feature 3 Title",
+              "type": "text",
+              "placeholder": "State Logic",
+              "default": "State Logic"
+            },
+            {
+              "name": "feature4Title",
+              "label": "Feature 4 Title",
+              "type": "text",
+              "placeholder": "Easy Config",
+              "default": "Easy Config"
+            },
+            {
+              "name": "feature4Description",
+              "label": "Feature 4 Description",
+              "type": "textarea",
+              "rows": 2,
+              "placeholder": "Style with CSS classes. Control animation duration and easing with data attributes.",
+              "default": "Style with CSS classes. Control animation duration and easing with data attributes."
+            },
+            {
+              "name": "installSectionTitle",
+              "label": "Install Section Title",
+              "type": "text",
+              "placeholder": "Install Now",
+              "default": "Install Now"
+            },
+            {
+              "name": "installCommand",
+              "label": "Install Command",
+              "type": "text",
+              "placeholder": "npm install itshover",
+              "default": "npm install itshover"
+            },
+            {
+              "name": "installButtonText",
+              "label": "Install Button Text",
+              "type": "text",
+              "placeholder": "Read Documentation",
+              "default": "Read Documentation"
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "title": "Interaction Lab",
+          "fields": [
+            {
+              "name": "interactionLabTitle",
+              "label": "Interaction Lab Title",
+              "type": "text",
+              "placeholder": "Interaction Lab",
+              "default": "Interaction Lab"
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "title": "Implementation",
+          "fields": [
+            {
+              "name": "implementationTitle",
+              "label": "Implementation Title",
+              "type": "text",
+              "placeholder": "Implementation",
+              "default": "Implementation"
+            },
+            {
+              "name": "specsTitle",
+              "label": "Technical Specs Title",
+              "type": "text",
+              "placeholder": "Technical Specs",
+              "default": "Technical Specs"
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "title": "CTA Section",
+          "fields": [
+            {
+              "name": "ctaTitle",
+              "label": "CTA Title",
+              "type": "text",
+              "placeholder": "Ready to Animate?",
+              "default": "Ready to Animate?"
+            },
+            {
+              "name": "ctaDescription",
+              "label": "CTA Description",
+              "type": "textarea",
+              "rows": 2,
+              "placeholder": "Join thousands of developers building lighter, faster, and more interactive web experiences.",
+              "default": "Join thousands of developers building lighter, faster, and more interactive web experiences."
+            },
+            {
+              "name": "ctaButtonPrimary",
+              "label": "CTA Primary Button",
+              "type": "text",
+              "placeholder": "npm install itshover",
+              "default": "npm install itshover"
+            },
+            {
+              "name": "ctaButtonSecondary",
+              "label": "CTA Secondary Button",
+              "type": "text",
+              "placeholder": "View on GitHub",
+              "default": "View on GitHub"
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "title": "Footer",
+          "fields": [
+            {
+              "name": "footerLibraryTitle",
+              "label": "Footer Library Title",
+              "type": "text",
+              "placeholder": "Library",
+              "default": "Library"
+            },
+            {
+              "name": "footerLibraryLink1",
+              "label": "Footer Library Link 1",
+              "type": "text",
+              "placeholder": "Usage",
+              "default": "Usage"
+            },
+            {
+              "name": "footerLibraryLink2",
+              "label": "Footer Library Link 2",
+              "type": "text",
+              "placeholder": "Icons",
+              "default": "Icons"
+            },
+            {
+              "name": "footerLibraryLink3",
+              "label": "Footer Library Link 3",
+              "type": "text",
+              "placeholder": "Changelog",
+              "default": "Changelog"
+            },
+            {
+              "name": "footerCommunityTitle",
+              "label": "Footer Community Title",
+              "type": "text",
+              "placeholder": "Community",
+              "default": "Community"
+            },
+            {
+              "name": "footerCommunityLink1",
+              "label": "Footer Community Link 1",
+              "type": "text",
+              "placeholder": "GitHub",
+              "default": "GitHub"
+            },
+            {
+              "name": "footerCommunityLink2",
+              "label": "Footer Community Link 2",
+              "type": "text",
+              "placeholder": "Discord",
+              "default": "Discord"
+            },
+            {
+              "name": "footerCommunityLink3",
+              "label": "Footer Community Link 3",
+              "type": "text",
+              "placeholder": "Sponsor",
+              "default": "Sponsor"
+            },
+            {
+              "name": "footerNewsletterTitle",
+              "label": "Footer Newsletter Title",
+              "type": "text",
+              "placeholder": "Stay Updated",
+              "default": "Stay Updated"
+            },
+            {
+              "name": "newsletterPlaceholder",
+              "label": "Newsletter Placeholder",
+              "type": "text",
+              "placeholder": "ENTER EMAIL",
+              "default": "ENTER EMAIL"
+            },
+            {
+              "name": "copyrightText",
+              "label": "Copyright Text",
+              "type": "text",
+              "placeholder": "© 2026 ITSHOVER OPEN SOURCE. MIT LICENSE.",
+              "default": "© 2026 ITSHOVER OPEN SOURCE. MIT LICENSE."
             }
           ]
         }
