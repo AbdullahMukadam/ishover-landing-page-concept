@@ -1,0 +1,36 @@
+{
+    "id": "ishover-1",
+    "name": "Saas Landing Page",
+    "description": "A sleek, modern Utilitarian Design template with responsive design",
+    "category": "landing",
+    "type": "html",
+    "formConfig": {
+      "steps": [
+        {
+          "id": 1,
+          "title": "Personal Info",
+          "fields": [
+            {
+              "name": "name",
+              "label": "Full Name",
+              "type": "text",
+              "required": true,
+              "placeholder": "John Doe"
+            },
+            {
+              "name": "email",
+              "label": "Email",
+              "type": "email",
+              "required": true
+            },
+            {
+              "name": "bio",
+              "label": "Bio",
+              "type": "textarea",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    }
+  }
